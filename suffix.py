@@ -1,6 +1,10 @@
 S_TYPE = 'S'
 L_TYPE = 'L'
 
+def isLMSChar(index, typemap):
+    return index > 0 and typemap[index] == S_TYPE and typemap[index - 1] == L_TYPE
+    
+
 def buildTypeMap(string):
     type_map = [0]*(len(string) + 1)
     #empty suffix at end of string is S type by definition
@@ -21,3 +25,4 @@ def buildTypeMap(string):
 
     
 print(''.join(buildTypeMap('cabbage')))
+print(isLMSChar(0, buildTypeMap('cabbage')))
